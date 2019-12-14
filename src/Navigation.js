@@ -24,25 +24,20 @@ class Navigation extends React.Component {
             <Route path="/about" exact component={About} />
             <Route path="/support" exact component={Support} />
             <Route path="/register" exact component={Register} />
-            <Route
+            <ProtectedRoute
               authenticated={this.props.authenticated}
               path="/login"
               exact
               component={Login}
             />
-            <Route path="/demo" component={Demo} />
-            <Route
+            <ProtectedRoute path="/demo" component={Demo} />
+            <ProtectedRoute
               authenticated={this.props.authenticated}
               path="/home/:id"
               component={HomepageLogin}
             />
-            <Route
-              authenticated={this.props.authenticated}
-              exact
-              path="/dashboard/:id/profile"
-              render={() => <Profile />}
-            />
-            <Route
+
+            <ProtectedRoute
               authenticated={this.props.authenticated}
               path="/chat/:id"
               component={Chatroom}
